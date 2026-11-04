@@ -5,6 +5,7 @@
 
 import html
 import json
+import os
 import random
 from pathlib import Path
 
@@ -12,6 +13,10 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 CARPETA_APP = Path(__file__).parent
+# CSS público en GitHub (Streamlit Cloud a veces no aplica <style> inline en markdown).
+CSS_APP_URL = (
+    "https://raw.githubusercontent.com/caracolgris/cine-match/main/estilos_app.css"
+)
 
 
 def cargar_peliculas():
@@ -31,9 +36,14 @@ st.set_page_config(
 
 
 def aplicar_estilos_cine():
-    """Inyecta estilos desde estilos_app.css (misma apariencia, archivo aparte)."""
-    css = (CARPETA_APP / "estilos_app.css").read_text(encoding="utf-8")
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    """estilos_app.css: enlace en Streamlit Cloud; inline en tu PC."""
+    st.markdown(
+        f'<link rel="stylesheet" href="{CSS_APP_URL}">',
+        unsafe_allow_html=True,
+    )
+    if not os.getenv("GITHUB_REPOSITORY"):
+        css = (CARPETA_APP / "estilos_app.css").read_text(encoding="utf-8")
+        st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 
 aplicar_estilos_cine()
