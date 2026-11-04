@@ -1,0 +1,79 @@
+body {
+        font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        padding: 4px 8px 8px;
+        background: transparent;
+        color: #2B2D42;
+    }
+    .boleto-cine {
+        background: #FAFAFA;
+        border: 2px dashed #D4A5A5;
+        border-radius: 22px;
+        padding: 1.25rem 1.5rem 1.5rem;
+        position: relative;
+        box-shadow: 0 6px 18px rgba(78, 205, 196, 0.12);
+    }
+    .boleto-cine::before,
+    .boleto-cine::after {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        background: #FFF0F5;
+        border: 2px dashed #D4A5A5;
+        border-radius: 50%;
+        top: 42%;
+        z-index: 1;
+    }
+    .boleto-cine::before { left: -14px; }
+    .boleto-cine::after { right: -14px; }
+    .boleto-titulo {
+        color: #FF6B6B;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem;
+    }
+    .boleto-sinopsis {
+        color: #2B2D42;
+        line-height: 1.55;
+        margin: 0 0 0.75rem;
+    }
+    .calificacion-palomitas {
+        font-size: 1.1rem;
+        margin: 0.35rem 0 0.75rem;
+    }
+    .calificacion-palomitas strong { color: #FF8787; }
+    .boleto-cuerpo {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        align-items: flex-start;
+    }
+    .boleto-poster {
+        flex: 0 1 200px;
+        max-width: 260px;
+    }
+    .boleto-poster img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 2px solid #D4A5A5;
+        display: block;
+    }
+    .poster-aviso {
+        font-size: 0.82rem;
+        opacity: 0.85;
+        margin-top: 0.35rem;
+    }
+    .boleto-datos { flex: 1 1 220px; min-width: 200px; }
+    .dato-pelicula { margin: 0.25rem 0; }
+    .dato-pelicula strong { color: #4ECDC4; }
+    .snack-tag {
+        display: inline-block;
+        background: linear-gradient(135deg, #FFE66D, #FFF3B0);
+        padding: 0.45rem 1rem;
+        border-radius: 999px;
+        font-weight: 600;
+        border: 1px solid #FFE66D;
+        margin-top: 0.5rem;
+    }
